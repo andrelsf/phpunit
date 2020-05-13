@@ -2,28 +2,28 @@
 
 namespace OrderBundle\Validators\Test;
 
-use OrderBundle\Validators\NotEmptyValidator;
 use PHPUnit\Framework\TestCase;
+use OrderBundle\Validators\NotEmptyValidator;
 
 class NotEmptyValidatorTest extends TestCase
 {
-    /**
-     * @dataProvider valueProvider
-     */
-    public function testIsValid($value, $expectedResult)
+    public function testShouldNotBeValidWhenValueIsEmpty()
     {
-        $notEmptyValidator = new NotEmptyValidator($value);
+        $emptyValue = "";
+        $notEmptyValidator = new NotEmptyValidator($emptyValue);
 
         $isValid = $notEmptyValidator->isValid();
 
-        $this->assertEquals($expectedResult, $isValid);
+        $this->assertFalse($isValid);
     }
 
-    public function valueProvider()
+    public function testShouldBeValidWhenValueIsNotEmpty()
     {
-        return [
-            'shouldBeValidWhenValueIsNotEmpty' => ['value' => 'foo', 'expectedResult' => true],
-            'shouldNotBeValidWhenValueIsEmpty' => ['value' => '', 'expectedResult' => false]
-        ];
+        $notEmptyValue = "foo";
+        $notEmptyValidator = new NotEmptyValidator($notEmptyValue);
+
+        $isValid = $notEmptyValidator->isValid();
+
+        $this->assertTrue($isValid);
     }
 }
