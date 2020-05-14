@@ -14,7 +14,7 @@ class CustomerTest extends TestCase
     public function isAllowedToOrder($isActive, $isBlocked, $expectedAllowed)
     {
         $customer = new Customer(
-            $isActive, $isBlocked, 'Foo Bar', '+5562999721571'
+            $isActive, $isBlocked, 'Foo Bar', '+5562999721570'
         );
 
         $isAllowed = $customer->isAllowedToOrder();
