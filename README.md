@@ -35,3 +35,15 @@ Para executar os testes da `parte 2` siga as seguintes instruções:
  Execute os testes:
  
 `./vendor/bin/phpunit src/`
+
+#### NOTES
+
+Nomenclaturas para testes
+
+shouldBeValidWhenValueIsANumber ou whenValueIsANumberShouldBeValid
+
+* O que esta sendo testado?
+* Quais as circunstancias?
+* Qual o resultado esperado?
+
+Pode ser usado _ (underscore) para separar o nome
