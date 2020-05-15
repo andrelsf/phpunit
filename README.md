@@ -64,3 +64,9 @@ O principio da responsabilidade unica também se aplica para testes
 a solução usando PHPUnit e usar stubs, que é um objeto com um comportamento fixo e previsivel, ou seja, um objeto falso que muito semelhando ao objeto real so que sem funcionalidade so retorna os valores fixos.
 
 foca na classe que sera testada e simulo as dependencias.
+
+#### Mocks
+
+Mocks faz a mesma coisa que um Stub diferenciando na possibilidade de fazer a asserção do comportamento.
+Um cenario para ser utilizado e quando temos metodos que não retornam nada e precisamos de asserção no comportamento do objeto.
+Garantindo que ele vai chamar um metodo ou não.
