@@ -38,6 +38,8 @@ Para executar os testes da `parte 2` siga as seguintes instruções:
 
 #### NOTES
 
+Testes Unitarios e testar as classes de forma isolada
+
 Nomenclaturas para testes
 
 shouldBeValidWhenValueIsANumber ou whenValueIsANumberShouldBeValid
@@ -47,3 +49,18 @@ shouldBeValidWhenValueIsANumber ou whenValueIsANumberShouldBeValid
 * Qual o resultado esperado?
 
 Pode ser usado _ (underscore) para separar o nome
+
+Testar Entidades?
+NOTE: Metodos que possuem regras de negocio estes devem ser testados.
+
+#### Stubs
+
+Testes Unitarios e testar as classes de forma isolada
+
+O que fazer quando uma classe tem muitas dependencias?
+
+O principio da responsabilidade unica também se aplica para testes
+
+a solução usando PHPUnit e usar stubs, que é um objeto com um comportamento fixo e previsivel, ou seja, um objeto falso que muito semelhando ao objeto real so que sem funcionalidade so retorna os valores fixos.
+
+foca na classe que sera testada e simulo as dependencias.
