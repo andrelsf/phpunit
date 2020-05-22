@@ -24,15 +24,36 @@ class FidelityProgramServiceTest extends TestCase
         $pointsCalculator = $this->createMock(PointsCalculator::class);
         $pointsCalculator->method('calculatePointsToReceive')->willReturn(100);
 
+        // SPIES: Garante a asserção pelo comportamento do objeto
+        //        Podemos definir o compartamento do mock quando ele
+        //        for chamado
+        $allMessages = [];
         $logger = $this->createMock(LoggerInterface::class);
+        $logger->method('log')
+               ->will($this->returnCallback(
+                   function ($message) use (&$allMessages) {
+                       $allMessages[] = $message;
+                   }
+               ));
 
-        $fidelityProgramService = new FidelityProgramService($pointsRepository, $pointsCalculator, $logger);
+        $fidelityProgramService = new FidelityProgramService(
+            $pointsRepository, 
+            $pointsCalculator,
+            $logger
+        );
 
-        // Customer is Dummies
+        // Customer is a Dummies
         $customer = $this->createMock(Customer::class);
         $value = 50;
 
         $fidelityProgramService->addPoints($customer, $value);
+
+        $expectedMessages = [
+            'Checking points for customer',
+            'Customer received points'
+        ];
+
+        $this->assertEquals($expectedMessages, $allMessages);
     }
 
     /**

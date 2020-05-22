@@ -112,7 +112,9 @@ Mocks faz a mesma coisa que um Stub diferenciando na possibilidade de fazer a as
 Um cenario para ser utilizado e quando temos metodos que não retornam nada e precisamos de asserção no comportamento do objeto.
 Garantindo que ele vai chamar um metodo ou não.
 
-#### Dummies e Spies
+#### Fakes, Dummies e Spies
+
+`Fakes:` Fakes tem a funcionalidade da classe real é ela só e usada nos testes. Usado em fake de databases e APIs para representação da comunicação com estes serviços.
 
 `Dummies:` são objetos que criamos no test, onde não precisamos especificar nenhum retorno para ele e nenhum tipo de asserção de comportamento. Ele só e criado para satisfazer algum parametro de uma classe ou metodo.
 
