@@ -28,6 +28,7 @@ class FidelityProgramServiceTest extends TestCase
 
         $fidelityProgramService = new FidelityProgramService($pointsRepository, $pointsCalculator, $logger);
 
+        // Customer is Dummies
         $customer = $this->createMock(Customer::class);
         $value = 50;
 
