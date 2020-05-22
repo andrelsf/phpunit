@@ -67,6 +67,16 @@ Analise de valor de limite ou fronteira
 
 ![test](./images/tabela.png)
 
+#### Key Words
+
+* testes manuais
+* testes automatizados
+* testes unitarios
+* testes de integração
+* TestCase
+* Data Providers
+* 
+
 #### NOTES
 
 Testes Unitarios e testar as classes de forma isolada
@@ -92,9 +102,9 @@ O que fazer quando uma classe tem muitas dependencias?
 
 O principio da responsabilidade unica também se aplica para testes
 
-a solução usando PHPUnit e usar stubs, que é um objeto com um comportamento fixo e previsivel, ou seja, um objeto falso que muito semelhando ao objeto real so que sem funcionalidade so retorna os valores fixos.
+a solução usando PHPUnit e usar stubs, que é um objeto com um comportamento fixo e previsivel, ou seja, um objeto falso muito semelhando ao objeto real so que sem funcionalidade so retorna os valores fixos.
 
-foca na classe que sera testada e simulo as dependencias.
+Stubs foca na classe que sera testada e simular as dependencias.
 
 #### Mocks
 
