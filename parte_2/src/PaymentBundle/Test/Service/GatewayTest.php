@@ -20,7 +20,7 @@ class GatewayTest extends TestCase
         $httpClient->method('send')
                    ->will($this->returnCallback(
                        function($method, $address, $body) {
-                           $this->fakeHttpClientSend($method, $address, $body);
+                           return $this->fakeHttpClientSend($method, $address, $body);
                        }
                    ));
 
@@ -45,14 +45,14 @@ class GatewayTest extends TestCase
     /**
      * @test
      */
-    public function shouldNotPayWhenFailOnGatewayl()
+    public function shouldNotPayWhenFailOnGateway()
     {
         // Dependencias
         $httpClient = $this->createMock(HttpClientInterface::class);
         $httpClient->method('send')
                    ->will($this->returnCallback(
                        function($method, $address, $body) {
-                           $this->fakeHttpClientSend($method, $address, $body);
+                           return $this->fakeHttpClientSend($method, $address, $body);
                        }
                    ));
 
@@ -60,7 +60,7 @@ class GatewayTest extends TestCase
 
         // Classe que será testada
         $user = 'test';
-        $password = 'valid-password';
+        $password = 'invalid-password';
         $gateway = new Gateway($httpClient, $logger, $user, $password);
 
         // Execução
@@ -84,7 +84,7 @@ class GatewayTest extends TestCase
         $httpClient->method('send')
                    ->will($this->returnCallback(
                        function($method, $address, $body) {
-                           $this->fakeHttpClientSend($method, $address, $body);
+                           return $this->fakeHttpClientSend($method, $address, $body);
                        }
                    ));
 
@@ -110,10 +110,10 @@ class GatewayTest extends TestCase
     {
         switch ($address) {
             case Gateway::BASE_URL . '/authenticate':
-                if ($body['password'] != 'invalid-password') {
+                if ($body['password'] != 'valid-password') {
                     return null;
                 }
-                return 'my-token';
+                return 'meu-token';
                 break;
             case Gateway::BASE_URL . '/pay':
                 if ($body["credit_card_number"] == 9999999999999999) {
