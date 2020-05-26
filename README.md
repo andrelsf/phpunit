@@ -134,12 +134,14 @@ public function setUp(): void
 
 `tearDown:`
  - Método executado após cada teste da classe 
+ Ele a bastante utilizado em tests de integração banco de dados, socket, sistema de arquivos.
 ```
 public function tearDown(): void
 ```
 
 `setUpBeforeClass:`
  - Método executado uma vez só, antes de todos os testes da classe
+ Bastante usado para teste de integração
 ```
 public static function setUpBeforeClass(): void
 ```
