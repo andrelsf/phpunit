@@ -75,9 +75,13 @@ Analise de valor de limite ou fronteira
 * testes de integração
 * TestCase
 * Data Providers
-* 
+* Dublê de teste
 
 #### NOTES
+
+Injeção de dependencia ajuda a a ter um codigo mais modularizado, essa tecnica passamos as dependencias no construtor de um objeto.
+
+O conceito de dublê de testes é um objeto que se parece com outro, para a realização de testes mais isolados.
 
 Testes Unitarios e testar as classes de forma isolada
 
@@ -112,6 +116,7 @@ Mocks faz a mesma coisa que um Stub diferenciando na possibilidade de fazer a as
 Um cenario para ser utilizado e quando temos metodos que não retornam nada e precisamos de asserção no comportamento do objeto.
 Garantindo que ele vai chamar um metodo ou não.
 
+
 #### Fakes, Dummies e Spies
 
 `Fakes:` Fakes tem a funcionalidade da classe real é ela só e usada nos testes. Usado em fake de databases e APIs para representação da comunicação com estes serviços.
@@ -125,6 +130,21 @@ Garantindo que ele vai chamar um metodo ou não.
 TestCase
 Data Providers
 Metodos setUp e tearDown
+
+Com o metodo `createMock` conseguimos ter uma classe pronta para ser utilizada como um dublê de testes.
+
+Para criar expectativas sobre dublês, ou seja, garantir que determinados métdos sejam realmente chamados com uso do `expects`.
+
+Para personalizar o nosso `mock`, utilizamos o método `getMockBuilder`
+
+Dublês podem propositalmente lançar uma exceção.
+Toda vez em que chamamos um metodo que pode ser lançada uma exceção o dublê usa o metodo `willThrowException` pode ser chamado.
+
+Com o metodo `with` podemos verificar quais argumentos foram passados para um metodo.
+
+Podemos capturar argumentos passados para método dos nossos mocks e fazer verificações neles com `willReturnCallback`.
+
+Métodos estáticos dificultam a geração de testes, já que não podemos fazer a injeção de dependencias.
 
 `setUp:` É um metodo protected retorna void e sempre e executando antes dos testes.
  - Método executado antes de cada teste da classe
@@ -207,3 +227,4 @@ $this->expectExceptionMessage('O campo nome não pode ser vazio!');
 * [PHPUnit](https://phpunit.de/getting-started/phpunit-9.html)
 * [PHPUnit Assertions](https://phpunit.readthedocs.io/en/8.1/assertions.html)
 * [Tecnicas de Teste](http://testwarequality.blogspot.com/p/tenicas-de-teste.html)
+* [Mocks aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
