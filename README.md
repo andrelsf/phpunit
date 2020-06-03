@@ -219,6 +219,12 @@ $this->expectException(\DomainException::class);
 $this->expectExceptionMessage('O campo nome não pode ser vazio!');
 ```
 
+## Testes de Integração
+
+
+
+
+
 #### Referencias
 
 * [Arrange Act Assert](https://wiki.c2.com/?ArrangeActAssert)
