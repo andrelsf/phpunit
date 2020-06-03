@@ -221,7 +221,12 @@ $this->expectExceptionMessage('O campo nome não pode ser vazio!');
 
 ## Testes de Integração
 
-
+Testes de integração testam além do nosso código
+ * Testa a integração entre várias classes/módulos da aplicação
+ * Podem testar a integração com um sistema externo
+    * SGBD
+    * APIs
+    * Requests HTTP para o próprio sistema
 
 
 
@@ -234,3 +239,6 @@ $this->expectExceptionMessage('O campo nome não pode ser vazio!');
 * [PHPUnit Assertions](https://phpunit.readthedocs.io/en/8.1/assertions.html)
 * [Tecnicas de Teste](http://testwarequality.blogspot.com/p/tenicas-de-teste.html)
 * [Mocks aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
+---
+* [Transactions DBs](http://luizricardo.org/2014/02/o-que-sao-e-como-funcionam-transacoes-em-sql/)
+* [The Challenge of Distributed Database Systems](http://berb.github.io/diploma-thesis/community/061_challenge.html#61)
