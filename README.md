@@ -228,7 +228,9 @@ Testes de integração testam além do nosso código
     * APIs
     * Requests HTTP para o próprio sistema
 
-
+Em banco de dados transações(transactions) são aliadas para realizar operações SQL em testes.
+O SQLite fornce um banco de dados em memória que pode auxiliar na performance da suite de testes.
+Mas limitado a insert, select, update e delete. Operações mais sofisticadas como triggers, procedures, etc não e recomendado pois cada SGDB possui suas peculariedades.
 
 #### Referencias
 
