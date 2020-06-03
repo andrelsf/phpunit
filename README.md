@@ -270,7 +270,6 @@ pm.test("Nenhum leilão deve estar finalizado", () => {
 });
 ```
 
-
 #### Referencias
 
 * [Arrange Act Assert](https://wiki.c2.com/?ArrangeActAssert)
