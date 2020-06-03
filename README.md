@@ -232,6 +232,12 @@ Em banco de dados transações(transactions) são aliadas para realizar operaç�
 O SQLite fornce um banco de dados em memória que pode auxiliar na performance da suite de testes.
 Mas limitado a insert, select, update e delete. Operações mais sofisticadas como triggers, procedures, etc não e recomendado pois cada SGDB possui suas peculariedades.
 
+Testes Intermediarios (Asserts Intermediarios)
+
+Commands:
+* `vendor/bin/phpunit --testsuite=unit`
+* `vendor/bin/phpunit --testsuite=integration`
+
 #### Referencias
 
 * [Arrange Act Assert](https://wiki.c2.com/?ArrangeActAssert)
