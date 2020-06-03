@@ -16,6 +16,16 @@ class GatewayTest extends TestCase
     public function shouldNotPayWhenAuthenticationFail()
     {
         $httpClient = $this->createMock(HttpClientInterface::class);
+<<<<<<< HEAD
+=======
+        $httpClient->method('send')
+                   ->will($this->returnCallback(
+                       function($method, $address, $body) {
+                           return $this->fakeHttpClientSend($method, $address, $body);
+                       }
+                   ));
+
+>>>>>>> bdd840d6a8c4ec72adcf878644d64f84519aa792
         $logger = $this->createMock(LoggerInterface::class);
         $user = 'test';
         $password = 'invalid-password';
@@ -53,9 +63,19 @@ class GatewayTest extends TestCase
     public function shouldNotPayWhenFailOnGateway()
     {
         $httpClient = $this->createMock(HttpClientInterface::class);
+<<<<<<< HEAD
+=======
+        $httpClient->method('send')
+                   ->will($this->returnCallback(
+                       function($method, $address, $body) {
+                           return $this->fakeHttpClientSend($method, $address, $body);
+                       }
+                   ));
+
+>>>>>>> bdd840d6a8c4ec72adcf878644d64f84519aa792
         $logger = $this->createMock(LoggerInterface::class);
         $user = 'test';
-        $password = 'valid-password';
+        $password = 'invalid-password';
         $gateway = new Gateway($httpClient, $logger, $user, $password);
 
         $token = 'meu-token';
@@ -94,7 +114,15 @@ class GatewayTest extends TestCase
     public function shouldSuccessfullyPayWhenGatewayReturnOk()
     {
         $httpClient = $this->createMock(HttpClientInterface::class);
-        $logger = $this->createMock(LoggerInterface::class);
+
+        $httpClient->method('send')
+                   ->will($this->returnCallback(
+                       function($method, $address, $body) {
+                           return $this->fakeHttpClientSend($method, $address, $body);
+                       }
+                   ));
+
+                   $logger = $this->createMock(LoggerInterface::class);
         $user = 'test';
         $password = 'valid-password';
         $gateway = new Gateway($httpClient, $logger, $user, $password);
@@ -141,4 +169,27 @@ class GatewayTest extends TestCase
 
         $this->assertEquals(true, $paid);
     }
+<<<<<<< HEAD
+=======
+
+    public function fakeHttpClientSend($method, $address, $body)
+    {
+        switch ($address) {
+            case Gateway::BASE_URL . '/authenticate':
+                if ($body['password'] != 'valid-password') {
+                    return null;
+                }
+                return 'meu-token';
+                break;
+            case Gateway::BASE_URL . '/pay':
+                if ($body["credit_card_number"] == 9999999999999999) {
+                    return ['paid' => true];
+                }
+
+                return ['paid' => false];
+                break;
+
+        }
+    }
+>>>>>>> bdd840d6a8c4ec72adcf878644d64f84519aa792
 }
